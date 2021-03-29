@@ -1,0 +1,27 @@
+{% extends "form_register/base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    <h1 class="font-italic">Please select position first!</h1>
+    {% csrf_token %}
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a href="formp/" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Principal</a>
+        <a href="formt/" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Teacher</a>
+        <a href="forms/" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Student</a>
+    </div>
+    <br><br>
+    {{form.fullname|as_crispy_field}}
+    {{form.message|as_crispy_field}}
+    <div class="row">
+        <div class="col-md-4">
+            {{form.code|as_crispy_field}}
+        </div>
+        <div class="col-md-8">
+            {{form.position|as_crispy_field}}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" disabled><i class="fas fa-file-upload"></i> Submit</button>
+</form>
+{% endblock %}

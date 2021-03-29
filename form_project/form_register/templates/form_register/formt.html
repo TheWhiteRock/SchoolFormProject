@@ -1,0 +1,22 @@
+{% extends "form_register/base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    <h1>Welcome Teacher,</h1>
+    <br>
+    {{form.fullname|as_crispy_field}}
+    {{form.message|as_crispy_field}}
+    <div class="row">
+        <div class="col-md-4">
+            {{form.code|as_crispy_field}}
+        </div>
+        <div class="col-md-8">
+            {{form.position|as_crispy_field}}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success"><i class="fas fa-file-upload"></i> Submit</button>
+</form>
+{% endblock %}
